@@ -1,0 +1,39 @@
+<%= render 'artists/artist_header'%>
+<div class="show-wrapper_ border-top">
+  <div class="show-content_ w-75 mx-auto my-5">
+    <!--artist name-->
+    <div class="border bg-info text-white text-center h2 p-3 mb-2"><%= @show_artist.name %></div>
+    <!--artist image-->
+    <div class="card d-inline-block w-100">
+      <div class="adjust-box_ box_">
+        <div class="inner_">
+          <img src="/assets/default-artist-header.png" class="card-img-top show-image_">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="d-flex flex-row justify-content-between align-items-center my-1 mx-2 pt-3 border-top">
+          <!--like button-->
+          <div class="like-button_ ml-3">
+            <strong>いいね！</strong>- Tap here!
+            <div class="LikesIcon">
+            <i class="far fa-heart LikesIcon-fa-heart"></i>
+            </div>
+          </div>
+          <!--upload user-->
+          <div class="up-user_">
+            <span class="h5"><strong>投稿者</strong>
+            <img src="/assets/default-user-icon.png" class="rounded-circle border border-dark" width="50px" height="50px">
+            <%= @up_user.name %>さん
+            </span>
+          </div>
+        </div>
+        <div class="artist_description_ mx-2 mt-5">
+          <span class="badge badge-dark">説明</span>
+          <div class="border border-dark rounded p-3 shadow-sm">
+            <%= @show_artist.description %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

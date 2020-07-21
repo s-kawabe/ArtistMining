@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+html {
+    font-size: 85%;
+}
+
+.logo_:hover {
+    opacity: 0.7;
+    transition: 0.6s;
+}
+

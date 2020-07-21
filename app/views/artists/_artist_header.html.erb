@@ -1,0 +1,29 @@
+<!--header jumbotron-->
+<div class="jumbotron my-2 mx-5 h-100　container">
+  <p class="lead">音楽との出会いを豊かに。</p>
+  <%= form_with(model: @artist, local: true) do |f| %>
+    <div class="form-group">
+      <div class="row">
+        <div class="offset-2 col-8 offset-md-6 col-md-4">
+          <%= f.text_field :name, class: 'form-control form-control-sm', placeholder: 'アーティスト名を検索' %>
+          <a class="btn btn-info btn-sm text-light"
+            data-toggle="collapse"
+            href="#condition"
+            role="button"
+            aria-expand="false"
+            aria-controls="#condition">条件付き検索</a>
+            
+          <div class="collapse" id="condition">
+            <div class="card card-body bg-light">
+               <!--f.radio_button :artist, :genre -->
+              <!--f.check_box :feelings :feeling -->
+              testtesesttesttesttest
+            </div>
+          </div>
+          
+          <%= f.submit '検索', class: 'btn btn-light d-block ml-auto mt-1' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

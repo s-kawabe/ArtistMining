@@ -1,0 +1,18 @@
+<!--ロゴ、ログイン関連UIを表示するヘッダー（全画面にて表示）-->
+<header class="border-bottom">
+  <div class="container">
+    <nav class="navbar navbar-expand-sm navbar-light row">
+      <a href="/" class="navbar-brand col-md-4 logo_">
+        <img src="/assets/logo.svg" width="60" height="60" class="d-inline-block align-middle" alt="サイトロゴ">
+        ArtistMining
+      </a>
+      <div class="navbar-nav offset-md-2 col-md-6 col-sm-8">
+        <!--ログインしてない-->
+        <%= link_to 'ログイン', new_session_path, class: 'nav-item btn btn-outline-primary m-1' %>
+        <%= link_to 'アカウント登録', new_user_path, class: 'nav-item btn btn-outline-secondary m-1' %>
+        <!--ログインしてる-->
+        <!--<img src="" alt="" class="rounded-circle">-->
+      <div>  
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="32px" viewBox="0 0 36 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>headphone</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Vivid.JS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Vivid-Icons" transform="translate(-511.000000, -333.000000)">
+            <g id="Icons" transform="translate(37.000000, 169.000000)">
+                <g id="headphone" transform="translate(468.000000, 156.000000)">
+                    <g transform="translate(6.000000, 8.000000)" id="Shape">
+                        <path d="M4,13 L4,16 L7,16 L7,13 L4,13 Z M29,13 L29,16 L32,16 L32,13 L29,13 Z M5,16 L7,16 L7,32 L5,32 C2.23857625,32 0,29.7614237 0,27 L0,21 C0,18.2385763 2.23857625,16 5,16 Z M29,16 L31,16 C33.7614237,16 36,18.2385763 36,21 L36,27 C36,29.7614237 33.7614237,32 31,32 L29,32 L29,16 Z" fill="#FF6E6E"></path>
+                        <path d="M29.789,13 C28.552,6.817 23.755,2.2 18,2.2 C12.245,2.2 7.448,6.817 6.211,13 L4.03,13 C5.425,5.574 11.134,0 18,0 C24.866,0 30.575,5.573 31.97,13 L29.789,13 Z M7,16 L10,16 L10,32 L7,32 L7,16 Z M0,20 L3,20 L3,28 L0,28 L0,20 Z M26,16 L29,16 L29,32 L26,32 L26,16 Z M33,20 L36,20 L36,28 L33,28 L33,20 Z" fill="#0C0058"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
