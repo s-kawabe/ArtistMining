@@ -3,15 +3,15 @@
   <!--navigation-->
   <ul class="nav nav-tabs justify-content-center bg-light artist-tab mb-5">
     <li class="nav-item"><%= link_to 'さがす', root_path, class: 'nav-link active'%></li>
-    <li class="nav-item"><%= link_to 'ひろめる', artists_new_path, class: 'nav-link'%></li>
+    <li class="nav-item"><%= link_to 'ひろめる', new_artist_path, class: 'nav-link'%></li>
   </ul>
   <!--artist view(card content)-->
   <div class="card-wrapper_ text-center container">
     <div class="row">
       <% @artists.each do |artist| %>
       <div class="col-12 col-sm-6 col-lg-4">
-        <div class="card m-3 shadow-sm d-inline-block">
-          <a class="card-content_ " href="<%= artist_path(artist) %>" width="100%">
+        <div class="card-content_ card m-3 shadow-sm d-inline-block">
+          <a  href="<%= artist_path(artist) %>" width="100%">
             <img src="/assets/default-artist-header.png" class="card-img-top">
             <div class="card-body border-top">
               <h5 class="card-title"><%= artist.name %></h5>

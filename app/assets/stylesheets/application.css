@@ -17,8 +17,14 @@ html {
     font-size: 85%;
 }
 
+
+/* hedder */
 .logo_:hover {
     opacity: 0.7;
     transition: 0.6s;
+}
+
+.navbar-nav .dropdown-menu {
+    position: absolute!important;
 }
 

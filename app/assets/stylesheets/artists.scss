@@ -40,11 +40,7 @@
 
 .card-content_:hover {
     opacity: 0.8;
-    transition: 0.2s;
-}
-
-.card:hover {
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.15)!important;
     transition: 0.4s;
 }
 
