@@ -1,0 +1,17 @@
+<div class="card-wrapper_ text-center container">
+  <div class="row">
+    <% artists.each do |artist| %>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="card-content_ card m-3 shadow-sm d-inline-block">
+        <a href="<%= artist_path(artist) %>" width="100%">
+          <img src="/assets/default-artist-header.png" class="card-img-top">
+          <div class="card-body border-top">
+            <h5 class="card-title"><%= artist.name %></h5>
+            <p class="card-text"><%= artist.description %></p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
