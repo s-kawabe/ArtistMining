@@ -1,11 +1,12 @@
 class User < ApplicationRecord
   before_save { self.email.downcase! }
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true
+  validates :name, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/ },
                     uniqueness: { case_sensitive: false }
                     
-    has_secure_password
+  has_secure_password
     
-    has_many :artists
+  has_many :artists
 end

@@ -31,10 +31,10 @@
     font-size: 1.4rem;
 }
 
-.artist-wrapper_ {
-    a:link, a:visited, a:hover, a:active{
-        color: #333;
-        text-decoration: none;    
+.artist-wrapper_, .card-wrapper_ {
+    a:link, a:visited, a:hover, a:active {
+      color: #333;
+      text-decoration: none!important;    
     }
 }
 
@@ -96,7 +96,6 @@
   animation: likeMotion .2s;
   color: #e2264d;
 }
-
 
 
 .adjust-box_ {

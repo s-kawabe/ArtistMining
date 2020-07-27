@@ -1,7 +1,7 @@
 <!--header jumbotron-->
 <div class="jumbotron my-2 mx-5 h-100　container">
   <p class="lead">音楽との出会いを豊かに。</p>
-  <%= form_with(model: @artist, local: true) do |f| %>
+  <%= form_with(url: search_artists_path, method: 'get', local: true) do |f| %>
     <div class="form-group">
       <div class="row">
         <div class="offset-2 col-8 offset-md-6 col-md-4">
@@ -15,9 +15,16 @@
             
           <div class="collapse" id="condition">
             <div class="card card-body bg-light">
-               <!--f.radio_button :artist, :genre -->
-              <!--f.check_box :feelings :feeling -->
-              testtesesttesttesttest
+              <h5>ジャンル</h5>
+              <% @disp_genres.each do |genre|%>
+                <span><%= f.check_box :genres, {multiple: true}, genre.id, nil %>
+                <%= genre.genre %></span>
+              <% end %>
+              <h5>気分</h5>
+              <% @disp_feelings.each do |feeling| %>
+                <span><%= f.check_box :feelings, {multiple: true}, feeling.id, nil %>
+                <%= feeling.feeling %></span>
+              <% end %>
             </div>
           </div>
           
