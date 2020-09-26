@@ -5,7 +5,7 @@ class ArtistsController < ApplicationController
   before_action :genre_feeling_set, only: [:index, :show, :new, :search]
   
   def index
-    @artists = Artist.all.page(params[:page]).per(PAGE_CONTENT)
+    @artists = Artist.all.order(id: :desc).page(params[:page]).per(PAGE_CONTENT)
   end
   
   def search
@@ -28,9 +28,20 @@ class ArtistsController < ApplicationController
   end
 
   def new
+    @artist = Artist.new
+  end
+  
+  def create
+    @artist = Artist.new(artist_params)
+    @genres = Genre.new(genre_params)
+    @feelings = Feeling.new(feeling_params)
+    
   end
 
   def edit
+  end
+  
+  def update
   end
   
   private
@@ -39,5 +50,20 @@ class ArtistsController < ApplicationController
     @disp_genres = Genre.all
     @disp_feelings = Feeling.all
   end
+  
+  def artist_params
+    params.require(:artist).permit(current_user.id, :name, :description)
+  end
+  
+  def genre_params
+    if params[:genres]
+      params.require(:genre).permit(:genres)
+    end
+  end
 
+  def feeling_params
+    if params[:feelings]
+      params.require(:feeling).permit(:feelings)
+    end
+  end
 end
