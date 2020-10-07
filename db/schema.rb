@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_170223) do
+ActiveRecord::Schema.define(version: 2020_10_06_094013) do
 
   create_table "artist_feelings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "artist_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_170223) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["user_id"], name: "index_artists_on_user_id"
   end
 

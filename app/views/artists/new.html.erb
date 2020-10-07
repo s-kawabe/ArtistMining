@@ -21,22 +21,26 @@
   
           <div class="row">
             <div class="form-group col-md-4">
-              <%= f.label :genres, 'ジャンル', class: "font-weight-bold" %>
-              <% @disp_genres.each do |genre|%>
-                <div>
-                  <%= f.check_box :genres, {multiple: true}, genre.id, nil %>
-                  <%= genre.genre %>
-                </div>
-              <% end %>
+              <%= f.fields_for :artist_genre do |i|%>
+                <%= i.label :genre_id, 'ジャンル', class: "font-weight-bold" %>
+                <% @disp_genres.each do |genres|%>
+                  <div>
+                    <%= i.check_box :genre_id, {multiple: true}, genres.id, nil %>
+                    <%= genres.genre %>
+                  </div>
+                <% end %>
+              <% end %>  
             </div>
             <div class="form-group offset-md-1 col-md-4">
-              <%= f.label :feelings, '気分', class: "font-weight-bold"%>
-              <% @disp_feelings.each do |feeling| %>
-                <div>
-                  <%= f.check_box :feelings, {multiple: true}, feeling.id, nil %>
-                  <%= feeling.feeling %>
-                </div>
-              <% end %>
+                <%= f.fields_for :artist_feeling do |i|%>
+                  <%= i.label :feeling_id, '気分', class: "font-weight-bold"%>
+                  <% @disp_feelings.each do |feelings| %>
+                    <div>
+                      <%= i.check_box :feeling_id, {multiple: true}, feelings.id, nil %>
+                      <%= feelings.feeling %>
+                    </div>
+                  <% end %>
+                <% end %>
             </div>
           </div>
           

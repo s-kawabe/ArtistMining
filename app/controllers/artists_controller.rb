@@ -29,13 +29,23 @@ class ArtistsController < ApplicationController
 
   def new
     @artist = Artist.new
+    @artist.artist_genres.build
+    @artist.artist_feelings.build
   end
   
   def create
     @artist = Artist.new(artist_params)
-    @genres = Genre.new(genre_params)
-    @feelings = Feeling.new(feeling_params)
+    if @artist
+      @artist.save!
+      redirect_to artist_path(@artist)
+    end
+
+    # TODO
     
+    # TODO 画像取得追加 
+    
+    
+
   end
 
   def edit
@@ -52,18 +62,10 @@ class ArtistsController < ApplicationController
   end
   
   def artist_params
-    params.require(:artist).permit(current_user.id, :name, :description)
-  end
-  
-  def genre_params
-    if params[:genres]
-      params.require(:genre).permit(:genres)
-    end
-  end
-
-  def feeling_params
-    if params[:feelings]
-      params.require(:feeling).permit(:feelings)
-    end
+    params.require(:artist).permit(:name,
+                                   :description,
+                                   artist_genres_attributes: [:artist_id, :genre_id],
+                                   artist_feelings_attributes: [:artist_id, :feeling_id])
+                                   .merge(user_id: current_user.id)
   end
 end

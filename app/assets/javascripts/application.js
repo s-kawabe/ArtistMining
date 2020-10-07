@@ -27,3 +27,4 @@ $('.LikesIcon').on('click',function() {
     $btn.children('svg').attr('class', 'fas fa-heart LikesIcon-fa-heart heart');
   }
 })
+
