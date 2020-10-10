@@ -9,7 +9,7 @@
       <!--ログイン中であれば登録画面を出す-->
       <% if logged_in? %>
         <div class="alert alert-primary text-center mt-4" role="alert">新規アーティスト登録</div>
-        <%= form_with(model: @artist, local: true) do |f| %>
+        <%= form_with(model: @artist, local:true ) do |f| %>
           <div class="form-group">
             <%= f.label :name, 'アーティスト名', class: "font-weight-bold" %>
             <%= f.text_field :name, class: "form-control", placeholder: "アーティスト名を入力してください" %>
@@ -21,23 +21,23 @@
   
           <div class="row">
             <div class="form-group col-md-4">
-              <%= f.fields_for :artist_genre do |i|%>
+              <%= f.fields_for :artist_genres do |i|%>
                 <%= i.label :genre_id, 'ジャンル', class: "font-weight-bold" %>
-                <% @disp_genres.each do |genres|%>
+                <% @disp_genres.each do |genre| %>
                   <div>
-                    <%= i.check_box :genre_id, {multiple: true}, genres.id, nil %>
-                    <%= genres.genre %>
+                    <%= i.check_box :genre_id, {multiple: true}, genre.id, false %>
+                    <%= genre.genre %>
                   </div>
                 <% end %>
               <% end %>  
             </div>
             <div class="form-group offset-md-1 col-md-4">
-                <%= f.fields_for :artist_feeling do |i|%>
+                <%= f.fields_for :artist_feelings do |i|%>
                   <%= i.label :feeling_id, '気分', class: "font-weight-bold"%>
-                  <% @disp_feelings.each do |feelings| %>
+                  <% @disp_feelings.each do |feeling| %>
                     <div>
-                      <%= i.check_box :feeling_id, {multiple: true}, feelings.id, nil %>
-                      <%= feelings.feeling %>
+                      <%= i.check_box :feeling_id, {multiple: true}, feeling.id, false %>
+                      <%= feeling.feeling %>
                     </div>
                   <% end %>
                 <% end %>
