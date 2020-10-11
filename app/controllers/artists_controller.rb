@@ -37,6 +37,9 @@ class ArtistsController < ApplicationController
     
     @artist = Artist.new(artist_params)
 
+binding.pry
+
+
     if @artist.save
       # 選択されたgenreを処理する
       if params[:artist][:artist_genres_attributes]
@@ -76,6 +79,6 @@ class ArtistsController < ApplicationController
   end
   
   def artist_params
-    params.require(:artist).permit(:name, :description).merge(user_id: current_user.id)
+    params.require(:artist).permit(:name, :description, :artist_image).merge(user_id: current_user.id)
   end
 end

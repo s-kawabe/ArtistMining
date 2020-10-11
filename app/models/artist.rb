@@ -1,4 +1,7 @@
 class Artist < ApplicationRecord
+
+  mount_uploader :artist_image, ArtistImageUploader
+
   belongs_to :user
   
   has_many :artist_genres, dependent: :destroy

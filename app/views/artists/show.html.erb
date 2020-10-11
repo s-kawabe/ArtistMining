@@ -9,6 +9,11 @@
         <div class="artist-img_">
           <!-- アーティスト画像が見つかればその画像を表示 -->
           <!-- アーティスト画像が登録されていなければデフォルト画像 -->
+          <% if @show_artist.artist_image.url %>
+            <%= image_tag @show_artist.artist_image.url, class: "artist-img_"%>
+          <% else %>
+            <img src="/assets/default-artist-header.png" alt="アーティストデフォルト画像" class="artist-img_">
+          <% end %>
           <div class="artist-tag_ ml-2">
             <!-- ジャンルが登録されていれば表示 -->
             <p class="genre_">

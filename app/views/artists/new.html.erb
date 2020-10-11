@@ -11,12 +11,19 @@
         <div class="alert alert-primary text-center mt-4" role="alert">新規アーティスト登録</div>
         <%= form_with(model: @artist, local:true ) do |f| %>
           <div class="form-group">
-            <%= f.label :name, 'アーティスト名', class: "font-weight-bold" %>
-            <%= f.text_field :name, class: "form-control", placeholder: "アーティスト名を入力してください" %>
+            <%= f.label :name, 'アーティスト名', class: "font-weight-bold"%>
+            <span class="badge badge-danger">必須</span>
+            <%= f.text_field :name, class: "form-control", placeholder: "アーティスト名を入力してください", required: true %>
           </div>
           <div class="form-group">
             <%= f.label :description, '説明', class: "font-weight-bold" %>
-            <%= f.text_area :description, class: "form-control", size: "20x10", placeholder: "説明文を入力してください"%>
+            <span class="badge badge-danger">必須</span>
+            <%= f.text_area :description, class: "form-control", size: "20x10", placeholder: "説明文を入力してください", required: true %>
+          </div>
+            
+          <div class="form-group">
+            <%= f.label :artist_image, 'アーティスト画像', class: "font-weight-bold"%><br>
+            <%= f.file_field :artist_image %>
           </div>
   
           <div class="row">

@@ -5,9 +5,9 @@
       <div class="card-content_ card m-3 shadow-sm d-inline-block">
         <a href="<%= artist_path(artist) %>" width="100%">
           <%# imageカラムにサムネイルが設定されているか %>
-          <% if artist.image %>
+          <% if artist.artist_image.url %>
             <%# TODO:DBに登録されている画像 %>
-            <img src="#" class="card-img-top">
+            <%= image_tag artist.artist_image.url, class: "card-img-top"%>
           <% elsif %>
             <%# デフォルト画像を使用 %>
             <img src="/assets/default-artist-header.png" class="card-img-top">
