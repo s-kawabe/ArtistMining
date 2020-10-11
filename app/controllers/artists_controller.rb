@@ -24,18 +24,45 @@ class ArtistsController < ApplicationController
 
   def show
     @show_artist = Artist.find(params[:id])
-    @up_user = User.find(@show_artist.user_id)
+    @up_user = User.find(@show_artist.user_id)    
   end
 
   def new
     @artist = Artist.new
+    @artist.artist_genres.build
+    @artist.artist_feelings.build
   end
   
   def create
-    @artist = Artist.new(artist_params)
-    @genres = Genre.new(genre_params)
-    @feelings = Feeling.new(feeling_params)
     
+    @artist = Artist.new(artist_params)
+
+binding.pry
+
+
+    if @artist.save
+      # 選択されたgenreを処理する
+      if params[:artist][:artist_genres_attributes]
+        params[:artist][:artist_genres_attributes]["0"][:genre_id].each do |e|
+          @artist.artist_genres.create!(artist_id: :id, genre_id: e)
+        end 
+      end
+
+      # 選択されたfeelingを処理する
+      if params[:artist][:artist_feelings_attributes]
+        params[:artist][:artist_feelings_attributes]["0"][:feeling_id].each do |e|
+          @artist.artist_feelings.create!(artist_id: :id, feeling_id: e)
+        end
+      end
+
+      flash[:success] = 'アーティストを登録しました。'
+      redirect_to @artist
+    else
+      flash.now[:danger] = 'アーティストの登録に失敗しました。'
+      genre_feeling_set
+      render action: :new
+    end
+
   end
 
   def edit
@@ -52,18 +79,6 @@ class ArtistsController < ApplicationController
   end
   
   def artist_params
-    params.require(:artist).permit(current_user.id, :name, :description)
-  end
-  
-  def genre_params
-    if params[:genres]
-      params.require(:genre).permit(:genres)
-    end
-  end
-
-  def feeling_params
-    if params[:feelings]
-      params.require(:feeling).permit(:feelings)
-    end
+    params.require(:artist).permit(:name, :description, :artist_image).merge(user_id: current_user.id)
   end
 end

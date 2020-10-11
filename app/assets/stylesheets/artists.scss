@@ -38,28 +38,95 @@
     }
 }
 
-.card-content_:hover {
+.card-content_ {
+  &:hover {
     opacity: 0.8;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,0.15)!important;
     transition: 0.4s;
+  }
 }
 
+
 // show.html
+.show-content_ {
+  width: 65%;
+}
+
+.adjust-box_ {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.box_::before {
+  content: "";
+  display: block;
+  padding-top: 55%;
+}
+
+.artist-img_ {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  .artist-tag_ {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    .badge {
+      font-size: 0.4vw;
+      border-radius: .75rem;
+    }
+    .badge-primary {
+      background-color: rgba(0,123,255,0.75);
+    }
+    .badge-success  {
+      background-color: rgba(40,167,69,0.75);
+    }
+  }
+}
+
 @media (max-width: 575px) {
     .show-content_ {
         width: 100%!important;
         font-size: 85%!important;
-        
+        .card-body {
+          padding-top: 0;
+        }
         div {
             font-size: 17px;
-        } 
-        
+        }
         .card-body {
             div{
                 font-size: 80%!important;
             }
+            .up-user_ span {
+              font-size: 1.2vw;
+            }
         }
     }
+}
+
+.LikesIcon {  
+  transition: all .2s;
+  background-color: #f5e8e8;
+  .fa-heart {
+    color: #555;
+  }
+  .LikesIcon-fa-heart{
+    font-size: 30px;
+    &.heart{
+      animation: likeMotion .2s;
+      color: #e2264d;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.75);
+  }
 }
 
 @keyframes likeMotion {
@@ -89,40 +156,10 @@
   }
 }
 
-.LikesIcon-fa-heart{
-  font-size: 30px;
-}
-.LikesIcon-fa-heart.heart{
-  animation: likeMotion .2s;
-  color: #e2264d;
+.up-user_ span {
+  font-size: 1.1vw;
 }
 
-
-.adjust-box_ {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.box_::before {
-  content: "";
-  display: block;
-  padding-top: 55%;
-}
-
-.inner_ {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.show-image_ {
-  width: 100%;
-  height: 100%;
- }
- 
  .artist_description_ {
     .badge {
       font-size: 20px;
@@ -134,5 +171,4 @@
     .border {
       height: 400px;
     }
- }
- 
+  }
