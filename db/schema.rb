@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_131115) do
+ActiveRecord::Schema.define(version: 2020_10_12_125246) do
 
   create_table "artist_feelings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "artist_id"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 2020_10_11_131115) do
     t.index ["user_id"], name: "index_artists_on_user_id"
   end
 
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "artist_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_favorites_on_artist_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "feelings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "feeling"
     t.datetime "created_at", null: false
@@ -67,4 +76,6 @@ ActiveRecord::Schema.define(version: 2020_10_11_131115) do
   add_foreign_key "artist_genres", "artists"
   add_foreign_key "artist_genres", "genres"
   add_foreign_key "artists", "users"
+  add_foreign_key "favorites", "artists"
+  add_foreign_key "favorites", "users"
 end

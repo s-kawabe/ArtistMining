@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   root to: 'artists#index'
   
   get 'login', to: 'sessions#new'
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
     collection do
       get :search, to: 'artists#search'
     end
+
+    resources :favorites, only: [:create, :destroy]
   end
     
   resources :users, only: [:new, :create, :edit, :update] do
@@ -16,4 +20,5 @@ Rails.application.routes.draw do
       get :pass, to: 'users#pass'
     end
   end
+
 end

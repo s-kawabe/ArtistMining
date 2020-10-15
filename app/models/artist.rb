@@ -11,7 +11,10 @@ class Artist < ApplicationRecord
   has_many :artist_feelings, dependent: :destroy
   has_many :get_feelings, through: :artist_feelings, source: :feeling
   accepts_nested_attributes_for :artist_feelings, allow_destroy: true
-  
+
+  has_many :favorites, dependent: :destroy
+  has_many :favoriters, through: :favorites, source: :user
+
   # ヘッダーの検索ボタンを押した時に動作する
   def self.search(name, genre_ids, feeling_ids)
     ret = []
