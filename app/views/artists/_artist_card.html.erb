@@ -13,7 +13,7 @@
             <img src="/assets/default-artist-header.png" class="card-img-top">
           <% end %>
           <div class="card-body border-top">
-            <p><i class="fas fa-heart text-danger"></i><span class="ml-2">25</span></p>
+            <p><i class="fas fa-heart text-danger"></i><span class="ml-2"><%= artist.favorites.count %></span></p>
             <h5 class="card-title"><%= artist.name %></h5>
             <p class="card-text"><%= artist.description %></p>
           </div>

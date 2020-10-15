@@ -9,4 +9,20 @@ class User < ApplicationRecord
   has_secure_password
     
   has_many :artists
+
+  has_many :favorites
+  has_many :favoritings, through: :favorites, source: :artist
+
+  def favorite(artist)
+    self.favorites.find_or_create_by(artist_id: artist.id)
+  end
+
+  def unfavorite(artist)
+    favorite = self.favorites.find_by(artist_id: artist.id)
+    favorite.destroy if favorite
+  end
+
+  def favoriting?(artist)
+    self.favoritings.include?(artist)
+  end
 end

@@ -120,7 +120,7 @@
     font-size: 30px;
     &.heart{
       animation: likeMotion .2s;
-      color: #e2264d;
+      color: tomato;
     }
   }
   &:hover {
@@ -154,6 +154,11 @@
   100% {
     transform: scale(1.0);
   }
+}
+
+.alert-light {
+  background-color: #f0f0f0;
+  border-color: #d8d8d8;
 }
 
 .up-user_ span {

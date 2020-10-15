@@ -37,11 +37,8 @@
       <div class="card-body">
         <div class="d-flex flex-row justify-content-between align-items-center my-1 mx-2 pt-3 border-top">
           <!--like button-->
-          <div class="like-button_ ml-3">
-            <strong>いいね！</strong>- Tap here!<br>
-            <div class="LikesIcon d-inline-block rounded-circle p-3 mt-2">
-              <i class="far fa-heart LikesIcon-fa-heart"></i>
-            </div>
+          <div id="favorite">
+            <%= render 'favorites/favorite_button', artist: @show_artist %>
           </div>
           <!--upload user-->
           <div class="up-user_">
