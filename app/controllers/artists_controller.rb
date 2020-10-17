@@ -37,9 +37,6 @@ class ArtistsController < ApplicationController
     
     @artist = Artist.new(artist_params)
 
-binding.pry
-
-
     if @artist.save
       # 選択されたgenreを処理する
       if params[:artist][:artist_genres_attributes]

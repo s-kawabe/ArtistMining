@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_125246) do
+ActiveRecord::Schema.define(version: 2020_10_17_014615) do
 
   create_table "artist_feelings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "artist_id"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_125246) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.string "image"
+    t.string "user_image"
     t.text "profile_message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,0 +1,6 @@
+<%# 画像が登録されている→登録されている画像　されていない→デフォルト画像 %>
+<%if user.user_image.url %>
+  <%= image_tag user.user_image.url, class: 'rounded-circle border border-secondary shadow mx-1', width: "#{w}px", height: "#{h}px" %>
+<% else %>  
+  <%= image_tag '/assets/default-user-icon.png', class: 'rounded-circle border border-secondary shadow mx-1', width: "#{w}px", height: "#{h}px" %>
+<% end %>
