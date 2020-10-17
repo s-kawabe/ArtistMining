@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+before_action :set_user, only: [:show, :edit, :pass, :update]
+
   def new
     @user = User.new
   end
@@ -16,18 +18,25 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
   end
 
   def edit 
-    @user = User.find(params[:id])
   end
 
   def pass
   end
 
   def update
-    @user = User.find(params[:id])
+
+    # パスワード変更時の現在パスワード一致チェック
+    if params[:user][:password_before]
+      unless @user.authenticate(params[:user][:password_before])
+        
+        flash.now[:danger] = '現在のパスワードが誤っています'
+        render :pass
+        return
+      end
+    end
 
     if @user.update(user_params)
       flash[:success] = 'ユーザ情報を変更しました'
@@ -45,7 +54,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :user_image, :password, :password_confirmation)
   end
 
-   def user_edit_params
-     params.require(:user).permit(:name, :email, :user_image)
-   end
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
