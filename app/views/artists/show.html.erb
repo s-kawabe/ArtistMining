@@ -43,8 +43,9 @@
           <!--upload user-->
           <div class="up-user_">
             <span class="h5 d-inline-block"><strong>投稿者</strong>
-            <img src="/assets/default-user-icon.png" class="rounded-circle border border-dark" width="50px" height="50px">
-            <%= @up_user.name %> さん
+            <%# <img src="/assets/default-user-icon.png" class="rounded-circle border border-dark" width="50px" height="50px"> %>
+            <%= render 'users/user_icon', { user: @up_user, w: 50, h: 50 } %>
+            <%= link_to "#{@up_user.name}", user_path(@up_user) %>さん
             </span>
           </div>
         </div>

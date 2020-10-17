@@ -10,13 +10,16 @@
         <% if logged_in? %>
           　<span class="mr-2">
               <strong>ログイン中</strong>
-              <img src="/assets/default-user-icon.png" class="rounded-circle border border-dark mx-1" width="50px" height="50px">
-              <%= current_user.name %>さん
+              <%# 画像が登録されている→登録されている画像　されていない→デフォルト画像 ★ここテンプレート可したい%>
+              <%# <img src="/assets/default-user-icon.png" class="rounded-circle border border-dark mx-1" width="50px" height="50px"> %>
+              <%= render 'users/user_icon', { user: current_user, w: 50, h: 50 } %>
+              <%= link_to "#{current_user.name}", user_path(current_user) %>さん 
+              <%# ここまで。テンプレートに表示すべきユーザのインスタンスを渡す　ヘッダー→currentuser, artist/show→@up_user %>
             </span>
             <div class="btn-group">
               <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">マイページ</a>
+                <%= link_to 'マイページ', user_path(current_user), class: 'dropdown-item' %>
                 <div class="dropdown-divider"></div>
                 <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :delete %>
               </div>

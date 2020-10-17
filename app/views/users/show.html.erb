@@ -1,0 +1,22 @@
+<div class="text-center">
+  <h1 class="mt-5 mb-3">ユーザプロフィール</h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6 offset-sm-3 text-center">
+
+    <div class="mb-4">
+      <%# <img src="/assets/default-user-icon.png" class="rounded-circle border border-dark" width="100px" height="100px"> %>
+      <%= render 'users/user_icon', { user: @user, w: 130, h: 130 } %>
+    </div>
+    <div class="mb-4">name : <%= @user.name %></div>
+    <div class="mb-4">email : <%= @user.email %></div>
+
+    <%# 表示中のユーザとcurrent_userが一致してたら編集ボタン表示 %>
+    <% if current_user == @user %>
+      <%= link_to 'ユーザ情報編集', edit_user_path, class: 'btn btn-primary' %>
+      <%# under construction %>
+      <%= link_to 'パスワード変更', pass_user_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
