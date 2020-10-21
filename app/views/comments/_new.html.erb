@@ -1,0 +1,6 @@
+<%= form_with(model: @comment, local: true) do |f| %>
+  <%= f.label :content, "コメントする", class: "font-weight-bold"%>
+  <%= f.text_area :content, class: "form-control textarea_", placeholder: "コメントを入力", required: true %>
+  <%= f.hidden_field :artist_id, value: artist.id %>
+  <%= f.submit 'コメント', class: 'btn btn-primary mb-4'%>
+<% end %>

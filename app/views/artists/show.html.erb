@@ -57,5 +57,12 @@
         </div>
       </div>
     </div>
+    <div class="card shadow d-inline-block w-100 mt-4">
+      <!-- comments new -->
+      <%= render 'comments/new', artist: @show_artist%>
+      <!-- comments index -->
+      <!-- new comment is display top -->
+      <%= render 'comments/index', { comments: @show_artist.comments.reverse, from_user: @show_artist.commenters.reverse } %>
+    </div>
   </div>
 </div>

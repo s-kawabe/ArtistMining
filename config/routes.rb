@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+  get 'comments/create'
+  get 'new/create'
   get 'favorites/create'
   get 'favorites/destroy'
   root to: 'artists#index'
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
 
     resources :favorites, only: [:create, :destroy]
   end
+
+  resources :comments, only: [:index, :create, :destroy]
     
   resources :users, only: [:new, :create, :show, :edit, :update] do
     member do

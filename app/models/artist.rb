@@ -15,6 +15,9 @@ class Artist < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favoriters, through: :favorites, source: :user
 
+  has_many :comments, dependent: :destroy
+  has_many :commenters, through: :comments, source: :user
+
   # ヘッダーの検索ボタンを押した時に動作する
   def self.search(name, genre_ids, feeling_ids)
     ret = []

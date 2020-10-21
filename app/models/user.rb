@@ -16,6 +16,9 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :favoritings, through: :favorites, source: :artist
 
+  has_many :comments
+  has_many :commentings, through: :comments, source: :artist
+
   def favorite(artist)
     self.favorites.find_or_create_by(artist_id: artist.id)
   end
@@ -27,5 +30,9 @@ class User < ApplicationRecord
 
   def favoriting?(artist)
     self.favoritings.include?(artist)
+  end
+
+  def comment(artist_id,content)
+    self.comments.find_or_create_by(artist_id: artist_id, content: content)
   end
 end

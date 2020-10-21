@@ -1,6 +1,4 @@
 class FavoritesController < ApplicationController
-  # before_action :require_user_logged_in
-  # TODO：ログインしていない場合はどうするか？
 
   before_action :set_artist, only: [:create, :destroy]
 
@@ -17,7 +15,7 @@ class FavoritesController < ApplicationController
   private
   
   def set_artist 
-    @artist = Artist.find(params[:artist_id]); 
-    @show_artist = Artist.find(params[:artist_id]); 
+    @artist = Artist.find(params[:artist_id])
+    @show_artist = Artist.find(params[:artist_id]) 
   end
 end

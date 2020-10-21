@@ -1,0 +1,14 @@
+<div class="ml-3">
+<h5><%= comments.count %>件のコメント</h5>
+<% comments.zip(from_user) do |comment, user| %>
+  <div class="d-flex align-items-top mb-3">
+    <div class="mr-2">
+      <%= render 'users/user_icon', { user: user, w: 50, h: 50 } %>
+    </div>
+    <div>
+      <div class="font-weight-bold"><%= link_to "#{user.name}", user_path(user) %></div>
+      <div><%= comment.content %></div>
+    </div>
+  </div>
+<% end %>
+</div>

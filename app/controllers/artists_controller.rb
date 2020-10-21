@@ -24,7 +24,9 @@ class ArtistsController < ApplicationController
 
   def show
     @show_artist = Artist.find(params[:id])
-    @up_user = User.find(@show_artist.user_id)    
+    @up_user = User.find(@show_artist.user_id) 
+    # コメント投稿用
+    @comment = Comment.new
   end
 
   def new
