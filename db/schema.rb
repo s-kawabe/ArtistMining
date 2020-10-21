@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_17_014615) do
+ActiveRecord::Schema.define(version: 2020_10_17_090018) do
 
   create_table "artist_feelings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "artist_id"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2020_10_17_014615) do
     t.datetime "updated_at", null: false
     t.string "artist_image"
     t.index ["user_id"], name: "index_artists_on_user_id"
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "artist_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_comments_on_artist_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -76,6 +86,8 @@ ActiveRecord::Schema.define(version: 2020_10_17_014615) do
   add_foreign_key "artist_genres", "artists"
   add_foreign_key "artist_genres", "genres"
   add_foreign_key "artists", "users"
+  add_foreign_key "comments", "artists"
+  add_foreign_key "comments", "users"
   add_foreign_key "favorites", "artists"
   add_foreign_key "favorites", "users"
 end
