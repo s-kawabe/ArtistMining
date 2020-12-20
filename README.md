@@ -1,5 +1,5 @@
 # アーティスト発掘アプリ「ArtistMining」
-
+https://artist-mining-app.herokuapp.com/
 
 ## コンセプト
 「好きなアーティストをみんなに広めたい人」<br>
