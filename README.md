@@ -1,5 +1,4 @@
 # アーティスト発掘アプリ「ArtistMining」
-https://artist-mining-app.herokuapp.com/
 ![スクリーンショット 2020-12-21 0 00 45](https://user-images.githubusercontent.com/65433193/102716499-a10d9080-431f-11eb-9656-9ac684bd3772.png)
 
 ## コンセプト
